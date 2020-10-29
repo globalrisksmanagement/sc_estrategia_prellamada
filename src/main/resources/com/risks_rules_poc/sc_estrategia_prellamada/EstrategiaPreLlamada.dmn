@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="screeningclustering_decisions" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_4212D6DD-D4CC-4C3A-800C-CC6A528485B5" name="EstrategiaPreLlamada" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="screeningclustering_decisions">
+  <dmn:extensionElements/>
+  <dmn:inputData id="_229DAD3B-C4BD-4D71-843F-91E8234FF75D" name="Producto">
+    <dmn:extensionElements/>
+    <dmn:variable id="_218ACE62-0058-424C-940D-A60A566976B4" name="Producto" typeRef="string"/>
+  </dmn:inputData>
+  <dmn:inputData id="_B6FD0494-0999-4B32-8A9F-6A0ABFC12FD0" name="Resultado Screening Interno">
+    <dmn:extensionElements/>
+    <dmn:variable id="_363644AD-9B6C-4655-9C55-A5E9DF0E4453" name="Resultado Screening Interno" typeRef="boolean"/>
+  </dmn:inputData>
+  <dmn:decision id="_7857257C-7533-470E-A8B9-4BBE569B1D5B" name="Estrategia Prellamada">
+    <dmn:extensionElements/>
+    <dmn:allowedAnswers>"BURO","EQUIFAX","BUROYEQUIFAX"</dmn:allowedAnswers>
+    <dmn:variable id="_57F8CB1E-1C12-488A-A16B-7A45DA03C3A7" name="Estrategia Prellamada" typeRef="string"/>
+    <dmn:informationRequirement id="_CBDB51A9-8928-4A90-8DE4-53CC2C515E3F">
+      <dmn:requiredInput href="#_B6FD0494-0999-4B32-8A9F-6A0ABFC12FD0"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_C6580BE2-68DC-4419-8B89-00729DE862D3">
+      <dmn:requiredInput href="#_81E5534B-C9D7-4713-985E-163904616F08"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_F8F0321E-2293-40F8-9E2B-6004B65E982E">
+      <dmn:requiredInput href="#_229DAD3B-C4BD-4D71-843F-91E8234FF75D"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_F3901FAF-3DE4-4F87-88E9-74B2581A3780" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_AE45F4A3-E06B-4EFB-A736-DFFAF225D999">
+        <dmn:inputExpression id="_B730696C-B232-4B74-9E67-5D539D9A41FC" typeRef="boolean">
+          <dmn:text>Resultado Screening Interno</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_FA457000-3949-479A-BFA2-BF231159948A">
+        <dmn:inputExpression id="_6664672D-8D18-4469-8888-91CF5FC69A52" typeRef="string">
+          <dmn:text>Canal</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_9AB7A121-788A-46F0-8387-59F3A1F960D4">
+        <dmn:inputExpression id="_B66B74E1-7F16-41AF-A2D0-E622DBDDE430" typeRef="string">
+          <dmn:text>Producto</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_9A1D0A8E-50EC-4DA9-A6B5-9319D68E958F"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_369AC04B-81E2-447D-9BEE-19D8CE08D683">
+        <dmn:inputEntry id="_DE0104E6-29F8-4BA2-B64A-A2F3605D6654">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0A30D9D5-45CA-4C79-AE8C-FC11A0305CCC">
+          <dmn:text>"OFICINA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8C0D1A62-1B53-4BED-B73B-D7DADD33F1D7">
+          <dmn:text>"TARJETA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_1721359E-5182-446D-8A6D-6650117762CA">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_EC2B8592-529E-4377-A4DA-76266E34848E">
+        <dmn:inputEntry id="_06F21AEE-3CDA-4D24-9FE2-4A96D2771619">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C3E12CCB-5AE2-49CE-8C92-76F05175D290">
+          <dmn:text>"OFICINA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5176A099-75DA-415F-B190-BB2D26FB4DC9">
+          <dmn:text>"PRESTAMO"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D11EF3D6-34F6-4416-A6CD-E44AD3533580">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_FFAAD99D-4AC4-4662-A686-358464693F61">
+        <dmn:inputEntry id="_02A44CCB-05EE-4CC2-92BC-E290D6586685">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8B1CDA70-542C-4837-80F0-79990730E31F">
+          <dmn:text>"OFICINA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A4DB8720-1918-40C4-BB06-0AEDC3FC5B8B">
+          <dmn:text>"Others"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_B7971054-E353-4832-9C05-8567468A490F">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_289DFCED-4F9A-4FF9-9FB1-8A64E0FCE422">
+        <dmn:inputEntry id="_A4F5D8BF-A915-43B3-ACB2-1938BBA13D4F">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_F2C93AE2-4183-4F08-990E-B9445FBF32CD">
+          <dmn:text>"DIGITAL"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8805A0B4-9B99-4838-9068-55A4D51A15CF">
+          <dmn:text>"TARJETA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D5B72159-0A55-4945-93CB-DFFA39189672">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_397D29ED-65B1-4DDA-B477-945E521FEB9F">
+        <dmn:inputEntry id="_69DD05B4-DE38-4AD7-931E-D0F9B7E8B7BC">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6B5FBE62-B772-46C8-8B8B-B529AF67B3B1">
+          <dmn:text>"DIGITAL"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_BFA58089-B4AD-4EAB-A09F-339280D569C7">
+          <dmn:text>"PRESTAMO"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E28A48B7-11C4-4973-B250-3BD471797515">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_89337F45-715C-40E9-AA09-11F5DAA6A440">
+        <dmn:inputEntry id="_E225E483-857C-4F85-84F8-23E5D78DD68D">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A39CFDEC-3A39-40DF-9478-736C79304D28">
+          <dmn:text>"DIGITAL"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_430007FB-733B-4ADA-8734-6DE38E9D97AD">
+          <dmn:text>"Others"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_BB89D148-E955-4720-878C-571F2FCA7CA9">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_FC24AF9B-F77B-4342-9CE0-EA88AB5E1618">
+        <dmn:inputEntry id="_0044B2A4-0655-4953-9813-6A050B6C339D">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2F62BF89-664A-4AD3-BB0B-FCB578285902">
+          <dmn:text>"Others"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4100EB27-B489-408D-B07C-60E3E1D39A2F">
+          <dmn:text>"TARJETA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D7E6B960-95AC-4FD1-82DC-EA95FA462323">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_ED4CEE6F-EBE5-407C-B92E-DB484C5B1DA3">
+        <dmn:inputEntry id="_9E5FD47A-F930-434D-89F3-C268E96D4A57">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A8D5389E-D989-4B06-987A-B72D94D50527">
+          <dmn:text>"Others"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D5591728-78CF-4D89-A7EC-9BD019EE3709">
+          <dmn:text>"PRESTAMO"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_504C35A5-FBB3-4DB5-870A-862786524F98">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_E1FE0FDA-DB22-4DA3-B200-35F0ACCA6F93">
+        <dmn:inputEntry id="_02CDA19E-56AA-4F71-BF01-BE68FEE62EE6">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_59EAD9F5-CDF2-4F75-9E72-CC24BDB4E14E">
+          <dmn:text>"Others"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8724EE36-6336-4785-8E38-553BAEBD7C31">
+          <dmn:text>"Others"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3BF85F55-FBC5-489F-9A6D-C99DF34C4C8E">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_5607F00C-AE12-4387-B26B-A33F1F6376AA">
+        <dmn:inputEntry id="_6E766872-0204-43BA-9ED2-00A547F96A18">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_20588229-D037-4344-9899-5BC6B9B55094">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_237E0535-930A-434F-B29F-826F47A695C7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E8198FD9-65EC-449B-8F5A-DA342DC744B2">
+          <dmn:text>"BURO"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_81E5534B-C9D7-4713-985E-163904616F08" name="Canal">
+    <dmn:extensionElements/>
+    <dmn:variable id="_8C5EA5CD-CE51-4D83-B99D-B60423F77B62" name="Canal" typeRef="string"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_F3901FAF-3DE4-4F87-88E9-74B2581A3780">
+            <kie:width>50.0</kie:width>
+            <kie:width>208.0</kie:width>
+            <kie:width>108.0</kie:width>
+            <kie:width>129.0</kie:width>
+            <kie:width>244.0</kie:width>
+            <kie:width>207.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_81E5534B-C9D7-4713-985E-163904616F08" dmnElementRef="_81E5534B-C9D7-4713-985E-163904616F08" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="463" y="381" width="129" height="59"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_229DAD3B-C4BD-4D71-843F-91E8234FF75D" dmnElementRef="_229DAD3B-C4BD-4D71-843F-91E8234FF75D" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="635" y="383" width="131" height="60"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_B6FD0494-0999-4B32-8A9F-6A0ABFC12FD0" dmnElementRef="_B6FD0494-0999-4B32-8A9F-6A0ABFC12FD0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="278.0093457943925" y="385" width="142" height="57"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_7857257C-7533-470E-A8B9-4BBE569B1D5B" dmnElementRef="_7857257C-7533-470E-A8B9-4BBE569B1D5B" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="451.5" y="182" width="155" height="79"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_CBDB51A9-8928-4A90-8DE4-53CC2C515E3F" dmnElementRef="_CBDB51A9-8928-4A90-8DE4-53CC2C515E3F">
+        <di:waypoint x="349.0093457943925" y="413.5"/>
+        <di:waypoint x="529" y="261"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_C6580BE2-68DC-4419-8B89-00729DE862D3" dmnElementRef="_C6580BE2-68DC-4419-8B89-00729DE862D3">
+        <di:waypoint x="527.5" y="410.5"/>
+        <di:waypoint x="529" y="261"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_F8F0321E-2293-40F8-9E2B-6004B65E982E" dmnElementRef="_F8F0321E-2293-40F8-9E2B-6004B65E982E">
+        <di:waypoint x="700.5" y="413"/>
+        <di:waypoint x="529" y="261"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
